@@ -22,23 +22,21 @@ def game():
     # Display the moves
     print(f'You chose {usermove}. The computer chose {computermove}.')
 
-    # winning conditions
+    # Winning conditions
     if usermove == computermove:
-        print("It's a draw ")
-    elif usermove == 'scissors' and computermove == 'paper':
-        print('you win')
-    elif usermove == 'paper' and computermove == 'rock':
-        print('you win')
-    elif usermove == 'rock' and computermove == 'scissors':
-        print('you win')
-    elif usermove == 'scissors' and computermove == 'rock':
-        print('You loose ')
-    elif usermove == 'paper' and computermove == 'scissors':
-        print('You loose ')
-    elif usermove == 'rock' and computermove == 'paper':
-        print('You loose ')
+        print("It's a draw")
+    elif (usermove == 'rock' and computermove == 'scissors') or (usermove == 'paper' and computermove == 'rock') or (
+            usermove == 'scissors' and computermove == 'paper'):
+        print('You win')
+        global user_score
+        user_score += 1
     else:
-        print("invalid input")
+        print('You lose')
+        global computer_score
+        computer_score += 1
+
+    # Display scores
+    print(f'{username}: {user_score} - Computer: {computer_score}')
 
     # new game
     newgame = input('new game (y/n): ')
@@ -50,5 +48,4 @@ def game():
 
 
 game()
-
 
