@@ -16,6 +16,10 @@ def game():
     # user move
     usermove = input('rock paper scissors: ')
 
+    # input validation
+    while usermove not in options:
+        usermove = input("invalid move let's try again ")
+
     # computer move
     computermove = random.choice(options)
 
